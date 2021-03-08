@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>qtquickcontrols2.conf</file>
-        <file>Page1GUI.qml</file>
-        <file>Page2GUI.qml</file>
-        <file>Page3GUI.qml</file>
-    </qresource>
-</RCC>
