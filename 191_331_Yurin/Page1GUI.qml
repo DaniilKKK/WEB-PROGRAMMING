@@ -1,4 +1,4 @@
-import QtQuick 2.12
+ import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.3
@@ -15,8 +15,8 @@ Page {
 
         Image {
             id: polytech_label
-            source: "https://avatars.mds.yandex.net/get-zen_doc/1546191/pub_5f991ac573193b2ea3b84386_5f991af373193b2ea3b8946b/scale_1200"
-            width: 68
+            source: "Loko1.png"
+            width: 78.5
             height: 85
             anchors.verticalCenter:  parent.verticalCenter
             anchors.left: parent.left
@@ -38,16 +38,6 @@ Page {
         }
 
 
-        Image {
-            id: lang_image
-            source: "https://avatars.mds.yandex.net/get-zen_doc/1821029/pub_5ebfcfe3ed526f6abcb9770a_5ebfd05664a20d0122a59ee2/scale_1200"
-            width: 45
-            height: 25
-            anchors.verticalCenter: lab1_header.verticalCenter //расположил флаг по центру относительно шапки и левее относительно
-                                                               //Combobox
-            anchors.right: control6.left
-            anchors.rightMargin: 40
-        }
 
 
         ComboBox {

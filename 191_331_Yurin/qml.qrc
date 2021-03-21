@@ -5,5 +5,9 @@
         <file>Page1GUI.qml</file>
         <file>Page2GUI.qml</file>
         <file>Page3GUI.qml</file>
+        <file>Loko1.png</file>
+        <file>lang.png</file>
+        <file>sample.mp4</file>
+        <file>foto.png</file>
     </qresource>
 </RCC>

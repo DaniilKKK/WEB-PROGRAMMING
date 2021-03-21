@@ -1,4 +1,4 @@
-QT += quick
+QT += quick multimedia multimediawidgets
 
 CONFIG += c++11
 
@@ -21,3 +21,4 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+android: include(D:/Program Files (x86)/Politech/android_openssl-master/openssl.pri)

@@ -8,7 +8,7 @@ import QtGraphicalEffects 1.0
 
 ApplicationWindow {
     width: 740
-    height: 480
+    height: 500
     visible: true
     title: qsTr("Программирование WEB-приложений")
 
