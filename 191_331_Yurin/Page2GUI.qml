@@ -198,10 +198,20 @@ Page {
                 }
             }
 
+            Label{
+                id:option
+                text: "Выберите опцию"
+                font.pointSize: 14
+                font.family: "Times New Roman"
+                leftPadding: control.indicator.width + control.spacing
+                rightPadding: control1.indicator.width + control1.spacing
+
+            }
+
             RadioButton {
                 id: control1
                 text: qsTr("Camera")
-                checked: true
+                checked: false
 
                 indicator: Rectangle {
                     implicitWidth: 26
@@ -336,7 +346,7 @@ Page {
                 visible: false
                 id:buttoncamera
                 onClicked: camera.imageCapture.captureToLocation("D:/Balabanova181-331/camera")
-                text: "𝐏𝐇𝐎𝐓𝐎"
+                text: "Photo"
                 background: Rectangle {
                     implicitWidth: 100
                     implicitHeight: 40
@@ -385,7 +395,7 @@ Page {
             id:button
             enabled: mediaplayer.hasVideo
             Layout.preferredWidth: button.implicitHeight
-            text: mediaplayer.playbackState === MediaPlayer.PlayingState ? "❙❙" : "►"
+            text: mediaplayer.playbackState === MediaPlayer.PlayingState ? "Stop":"Play"
             onClicked: mediaplayer.playbackState === MediaPlayer.PlayingState ? mediaplayer.pause() : mediaplayer.play()
 
             background: Rectangle {
@@ -401,6 +411,8 @@ Page {
         Slider{
             Layout.column: 1
             Layout.row: 3
+            anchors.horizontalCenter: parent.horizontalCenter  //расположил элементы по центру.
+            Layout.alignment: Qt.AlignCenter
             id: volumeSlider
             property real volume: QtMultimedia.convertVolume(volumeSlider.value,
                                                              QtMultimedia.LogarithmicVolumeScale,
@@ -416,7 +428,7 @@ Page {
 
                 id: openButton
 
-                text: qsTr("𝐎𝐏𝐄𝐍")
+                text: qsTr("Open")
                 Layout.preferredWidth: openButton.implicitHeight
                 onClicked: fileDialog.open()
 
@@ -439,12 +451,14 @@ Page {
 
             }
 
+
+            //отвечает за кнопку сфотографировать
             Label{
-                id:positionLabel
-                readonly property int minutes: Math.floor(mediaplayer.position / 60000)
-                readonly property int seconds: Math.round((mediaplayer.position % 60000) / 1000)
-                text: Qt.formatTime(new Date(0, 0, 0, 0, minutes, seconds), qsTr("mm:ss"))
-            }
+                          id:positionLabel
+                          readonly property int minutes: Math.floor(mediaplayer.position / 60000)
+                          readonly property int seconds: Math.round((mediaplayer.position % 60000) / 1000)
+                          text: Qt.formatTime(new Date(0, 0, 0, 0, minutes, seconds), qsTr("mm:ss"))
+                      }
         }
 
 
