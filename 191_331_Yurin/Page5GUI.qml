@@ -147,7 +147,7 @@ Page {
                 Layout.row: 3
                 id: webView
 
-                 url:"https://connect.ok.ru/oauth/authorize?client_id=512000563471&scope=VALUABLE_ACCESS;LONG_ACCESS_TOKEN&response_type=token&redirect_uri=https://apiok.ru/oauth_callback"
+                 url:"https://github.com/login"
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 onLoadingChanged: {
@@ -248,7 +248,7 @@ Page {
                 Layout.row:3
                 Layout.alignment: Qt.AlignCenter
                 onClicked:{
-                    webView.url = "https://connect.ok.ru/oauth/authorize?client_id=512000563471&scope=VALUABLE_ACCESS;LONG_ACCESS_TOKEN&response_type=token&redirect_uri=https://apiok.ru/oauth_callback"
+                    webView.url = "https://github.com/login"
                   buttonreturn.visible = false
                     webView.visible = true
                     labelreturn.visible = false
