@@ -136,345 +136,293 @@ Page {
         }
 }
 
-    //Юрин Даниил. В списке 25. Вариант 3
+
     GridLayout{
-        id: gridLayout
+        anchors.topMargin: 77
         anchors.fill: parent
-        anchors.bottomMargin: 0
-        anchors.topMargin: 0
-        rows: 1
-        columns: 3
-        anchors.leftMargin: 15
-        anchors.rightMargin: 15
+        columns: 2
+        rows: 6
 
-        Label {
-        Layout.column: 0
-         Layout.row: 0
-          text: "Регистрация пользователя"
-          anchors.top: parent.top
-          font.pointSize: 13
-          font.weight: Font.Bold //шрифт жирный
-          anchors.topMargin: 20
 
-          anchors.horizontalCenter: parent.horizontalCenter
+
+            Layout.row: 1
+            Layout.column: 0
+            Layout.alignment: Qt.AlignCenter
+
+            width: 200
+            height:150
+
+
+
+            Image {
+                id: bug
+                source: "sobaka.jpg"
+                width: 200
+                height:150
+                smooth: true
+                visible: false
+            }
+
+            Image {
+                id: mask
+                source: "ThresholdMask_mask.png"
+                width: 200
+                height:150
+                smooth: true
+                visible: false
+            }
+
+            ThresholdMask {
+                anchors.fill: bug
+                source: bug
+                maskSource: mask
+                threshold: slider1.value
+                spread: slider2.value
+            }
+
+
+
+
+
+
+        ColumnLayout{
+            Layout.row: 1
+            Layout.column: 1
+
+            Rectangle {
+                id: rectangle33
+                width: 100
+                height: 20
+                color: "#ffab25"
+                radius: 10
+                Layout.fillWidth: false
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+
+
+                Label {
+                    id: label13
+                    width: 74
+                    height: 13
+                    color: "#000000"
+                    text: qsTr("ThresholdMask")
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                 }
-}
-   GridLayout {
-        id: gridLayout1
-        anchors.fill: parent
-        anchors.bottomMargin: 6
-        anchors.topMargin: -6
-        //rows: 5
-        //columns: 3
-        anchors.leftMargin: 15 //сделал отступы по бокам
-        anchors.rightMargin: 15
-
-        Label {
-          id: personal_data
+            }
 
 
-          Layout.row: 1     //добавил в 1 колонку 1 строки
-          Layout.column: 1
-          anchors.left: parent.left
-          horizontalAlignment: Text.AlignHCenter  //расположил по центру Layout coloumn
-          verticalAlignment: Text.AlignTop
-          anchors.leftMargin: 0
-          //anchors.right: control5.left
-          font.weight: Font.Bold //задал стиль шрифту
-          font.pointSize: 9
+            Slider {
+                id: slider1
+                Text {
 
-          text: "Введите ФИО и возраст:"
+                    color: "#ffab25"
+
+                    text: qsTr("threshold")
+                    anchors.horizontalCenter: parent.horizontalCenter
                 }
+                from: 0.0
+                to: 1.0
+                value: 0.5
 
-         TextArea {
-             id: control5
+            }
+            Slider{
+                id: slider2
+                Text {
 
-             Layout.row: 1      //добавил в 2 колонку 1 строки
-             Layout.column: 2
+                    color: "#ffab25"
 
-             color: "#ff0000"
-             horizontalAlignment: Text.AlignHCenter
-             placeholderText: "Введите ФИО"
-             background: Rectangle {
-                 implicitWidth: 125
-                 implicitHeight: 40
-                 border.color: control5.enabled ? "#21be2b" : "transparent"
-                   }
-         }
-             Tumbler {
-                 Layout.row: 1          //добавил в 3 колонку 1 строки
-                 Layout.column: 3
-                 anchors.right: parent.right
-                 anchors.rightMargin: 8
+                    text: qsTr("spread")
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                from: 0.0
+                to: 1.0
+                stepSize: 0.2
 
-                 id: control4
+            }
+        }
 
-                 model: 15
+        Rectangle{
+            Layout.row: 2
+            Layout.columnSpan: 2
+            color: "#ffab25"
 
-                 background: Item {
-                     Rectangle {
-                         opacity: control4.enabled ? 0.2 : 0.1
-                         border.color: "#21be2b"
-                         width: parent.width
-                         height: 1
-                         anchors.top: parent.top
-                     }
+            height: 2
+            Layout.fillWidth: true
+            radius: 0
 
-                     Rectangle {
-                         opacity: control4.enabled ? 0.2 : 0.1
-                         border.color: "#21be2b"
-                         width: parent.width
-                         height: 1
-                         anchors.bottom: parent.bottom
-                     }
-                 }
-
-                 delegate: Text {
-                     text: qsTr(" %1 Лет").arg(modelData + 1) //изменил "Item" на "лет"
-                     font: control4.font
-                     horizontalAlignment: Text.AlignHCenter
-                     verticalAlignment: Text.AlignVCenter
-                     opacity: 1.0 - Math.abs(Tumbler.displacement) / (control4.visibleItemCount / 2)
-                 }
-
-                 Rectangle {
-                     anchors.horizontalCenter: control4.horizontalCenter
-                     y: control4.height * 0.4
-                     width: 40
-                     height: 1
-                     color: "#ff0000"
-                 }
-
-                 Rectangle {
-                     anchors.horizontalCenter: control4.horizontalCenter
-                     y: control4.height * 0.6
-                     width: 40
-                     height: 1
-                     color: "#ff0000"
-                 }
-
-             }
+        }
 
 
-             Label {
-               id: serial_data
+        Item {
+            width: 200
+            height: 150
+            Layout.row: 3
+            Layout.column: 0
+            Layout.alignment: Qt.AlignCenter
 
 
-               Layout.row: 2     //добавил в 1 колонку 1 строки
-               Layout.column: 1
+            Rectangle {
+                anchors.fill: parent
+            }
 
-               anchors.left: parent.left
-               horizontalAlignment: Text.AlignHCenter  //расположил по центру Layout coloumn
-               verticalAlignment: Text.AlignTop
-               anchors.leftMargin: 0
-               anchors.top: personal_data.bottom
-               //anchors.right: contol.left
-               anchors.topMargin: 35
-               font.weight: Font.Bold //задал стиль шрифту
-               font.pointSize: 9
+            Image {
+                id: bug2
+                source: "sobaka.jpg"
+                width: 200
+                height: 150
+                smooth: true
+                visible: false
 
-               text: "Введите серию и номер паспорта:"
-                     }
+            }
 
-             TextField {
-                        Layout.column:2 //добавил в 2 колонку 2 строки
-                        Layout.row:2
-                        id: control
-                        color: "#ff0000"
-                        width: 125
-                        height: 48
-                        horizontalAlignment: Text.AlignHCenter
-                        anchors.top: control5.bottom
-                        anchors.topMargin: 5
-                        placeholderText: qsTr("Введите серию и номер паспорта")
+            BrightnessContrast {
+                anchors.fill: bug2
+                source: bug2
+                brightness: slider4.value
+                contrast: slider5.value
+            }
+        }
 
-                        background: Rectangle {
-                            implicitWidth: 125
-                            implicitHeight: 40
-                            color: control.enabled ? "transparent" : "#353637"
-                            border.color: control.enabled ? "#21be2b" : "transparent"
+        ColumnLayout{
+            Layout.row: 3
+            Layout.column: 1
 
-                        }
-                      }
+            Rectangle {
+                id: rectangle34
+                width: 100
+                height: 20
+                color: "#ffab25"
+                radius: 10
+                Layout.fillWidth: false
+                Label {
+                    id: label34
+                    width: 84
+                    height: 13
+                    color: "#000000"
+                    text: qsTr("BrightnessContr")
+                    horizontalAlignment: Text.AlignHCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            }
 
-             Label {
-               id: sector_data
+            Slider {
+                id: slider4
+                Text {
 
+                    color: "#ffab25"
 
-               Layout.row: 3     //добавил в 1 колонку 3 строки
-               Layout.column: 1
+                    text: qsTr("brightness")
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                from: 0.0
+                to: 1.0
+                stepSize: 0.1
 
-               anchors.left: parent.left
-               horizontalAlignment: Text.AlignHCenter  //расположил по центру Layout coloumn
-               verticalAlignment: Text.AlignTop
-               anchors.leftMargin: 0
-               anchors.top: serial_data.bottom
-               anchors.right: contol3.left
-               anchors.topMargin: 40
-               font.weight: Font.Bold //задал стиль шрифту
-               font.pointSize: 9
+            }
+            Slider {
+                id: slider5
+                Text {
 
-               text: "Выберете сектор и место:"
-                     }
+                    color: "#ffab25"
 
+                    text: qsTr("contrast")
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                from: 0.0
+                to: 1.0
+                stepSize: 0.1
 
-             ProgressBar {
-                             Layout.row: 3
-                             Layout.column: 2
-                             id: control3
-                             anchors.top: control.bottom
+            }
 
-                             anchors.topMargin: 30
+        }
 
-                             value: 0.5
-                             padding: 2
+        Rectangle{
+            Layout.row: 4
+            Layout.columnSpan: 2
+            color: "#ffab25"
 
-                             background: Rectangle {
-                                 implicitWidth: 125
-                                 implicitHeight: 6
-                                 color: "#ff0000"
-                                 radius: 3
-                             }
-
-                             contentItem: Item {
-                                 implicitWidth: 125
-                                 implicitHeight: 8
-
-                                 Rectangle {
-                                     width: control.visualPosition * parent.width
-                                     height: parent.height
-                                     radius: 2
-                                     color: "#17a81a"
-                                 }
-                             }
-                         }
+            height: 2
+            Layout.fillWidth: true
+            radius: 0
 
 
-             Dial {
-                 Layout.row: 4
-                 Layout.column: 1
-                 id: control1
-                 anchors.top: sector_data.bottom
-                 anchors.left: parent.left
-                 anchors.topMargin: 10
-                 anchors.leftMargin: 30
+        }
 
-                 background: Rectangle {
-                     x: control1.width / 2 - width / 2
-                     y: control1.height / 2 - height / 2
-                     width: Math.max(64, Math.min(control1.width, control1.height))
-                     height: width
-                     color: "transparent"
-                     radius: width / 2
-                     border.color: control1.pressed ? "#17a81a" : "#21be2b"
-                     opacity: control1.enabled ? 1 : 0.3
-                 }
-
-                 handle: Rectangle {
-                     id: handleItem
-                     x: control1.background.x + control1.background.width / 2 - width / 2
-                     y: control1.background.y + control1.background.height / 2 - height / 2
-                     width: 16
-                     height: 16
-                     color: control1.pressed ? "#17a81a" : "#21be2b"
-                     radius: 8
-                     antialiasing: true
-                     opacity: control1.enabled ? 1 : 0.3
-                     transform: [
-                         Translate {
-                             y: -Math.min(control1.background.width, control1.background.height) * 0.4 + handleItem.height / 2
-                         },
-                         Rotation {
-                             angle: control1.angle
-                             origin.x: handleItem.width / 2
-                             origin.y: handleItem.height / 2
-                         }
-                     ]
-                 }
-             }
-
-             Label {
-               id: options_data
+        Item {
+            width: 200
+            height: 150
+            Layout.row: 5
+            Layout.column: 0
+            Layout.alignment: Qt.AlignCenter
 
 
-               Layout.row: 4     //добавил в 2 колонку 4 строки
-               Layout.column: 2
+
+            Image {
+                id: bug1
+                source: "sobaka.jpg"
+                width: 200
+                height: 150
+                smooth: true
+                visible: false
+
+            }
+
+            Image {
+                id: mask1
+                source: "mask1.png"
+                width: 200
+                height: 150
+                smooth: true
+                visible: false
+            }
+
+            OpacityMask {
+                anchors.fill: bug1
+                source: bug1
+                maskSource: mask1
+                invert: invert.checked
+
+            }
+        }
+
+        ColumnLayout{
+            Layout.row: 5
+            Layout.column: 1
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.fillHeight: false
+            Layout.fillWidth: false
 
 
-               horizontalAlignment: Text.AlignHCenter  //расположил по центру Layout coloumn
-               verticalAlignment: Text.AlignTop
-               anchors.leftMargin: 0
-               anchors.top: control3.bottom
+            Rectangle {
+                id: rectangle35
+                width: 100
+                height: 20
+                color: "#ffab25"
+                radius: 10
+                Layout.fillWidth: false
+                Label {
+                    id: label35
+                    width: 62
+                    height: 13
+                    color: "#000000"
+                    text: qsTr("OpacityMask")
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                }
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            }
 
-               anchors.topMargin: 40
-               font.weight: Font.Bold //задал стиль шрифту
-               font.pointSize: 9
+            Switch{
+                id:invert
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
 
-               text: "Выберете доп.опции:"
-                     }
-             BusyIndicator {
-                           Layout.row: 4       //расположил в 3 строке и 2 столбец
-                           Layout.column: 3
-                           id: control2
+            }
 
-                           anchors.right: parent.right
-                           anchors.top:control4.bottom
-                           anchors.leftMargin: 20
-                           anchors.topMargin: 25
-                           contentItem: Item {
-                            implicitWidth: 64
-                            implicitHeight: 64
 
-                                         Item {
-                                             id: item1
-                                             x: parent.width / 2 - 32
-                                             y: parent.height / 2 - 32
-                                             width: 64
-                                             height: 64
-                                             opacity: control2.running ? 1 : 0
-
-                                             Behavior on opacity {
-                                                 OpacityAnimator {
-                                                     duration: 250
-                                                 }
-                                             }
-
-                                             RotationAnimator {
-                                                 target: item1
-                                                 running: control2.visible && control2.running
-                                                 from: 0
-                                                 to: 360
-                                                 loops: Animation.Infinite
-                                                 duration: 1250
-                                             }
-
-                                             Repeater {
-                                                 id: repeater
-                                                 model: 6
-
-                                                 Rectangle {
-                                                     x: item1.width / 2 - width / 2
-                                                     y: item1.height / 2 - height / 2
-                                                     implicitWidth: 10
-                                                     implicitHeight: 10
-                                                     radius: 5
-                                                     color: "#21be2b"
-                                                     transform: [
-                                                         Translate {
-                                                             y: -Math.min(item1.width, item1.height) * 0.5 + 5
-                                                         },
-                                                         Rotation {
-                                                             angle: index / repeater.count * 360
-                                                             origin.x: 5
-                                                             origin.y: 5
-                                                         }
-                                                     ]
-                                                 }
-                                             }
-                                         }
-                                     }
-                                 }
-        }//закрытие GridLayout
+        }
+    }
 
 }
 

@@ -9,5 +9,11 @@
         <file>lang.png</file>
         <file>sample.mp4</file>
         <file>foto.png</file>
+        <file>mask1.png</file>
+        <file>sobaka.jpg</file>
+        <file>ThresholdMask_mask.png</file>
+        <file>Page4GUI.qml</file>
+        <file>1.png</file>
+        <file>Page5GUI.qml</file>
     </qresource>
 </RCC>

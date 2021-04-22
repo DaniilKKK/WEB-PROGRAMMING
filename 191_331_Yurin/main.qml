@@ -28,6 +28,13 @@ ApplicationWindow {
         Page3GUI {
             id: page3GUI
         }
+
+        Page4GUI {
+            id: page4GUI
+        }
+        Page5GUI {
+            id: page5GUI
+        }
     }
 
 
@@ -44,6 +51,12 @@ ApplicationWindow {
 
         TabButton {
             text: qsTr("Page 3")
+        }
+        TabButton {
+            text: qsTr("Page 4")
+        }
+        TabButton {
+            text: qsTr("Page 5")
         }
     }
 }
